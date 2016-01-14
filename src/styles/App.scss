@@ -1,0 +1,12 @@
+/* Base Application Styles */
+body {
+  color: #fff;
+  background: #222;
+}
+
+#app {
+  .navbar-brand {
+    height: 66px;
+    line-height: 38px;
+  }
+}

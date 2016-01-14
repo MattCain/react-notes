@@ -1,0 +1,24 @@
+{
+  bootstrapVersion: 3,
+
+  "useFlexbox": true,
+
+  "styleLoaders": ["style", "css", "sass"],
+
+  "styles": {
+    "mixins": true,
+    "normalize": true,
+    "print": true,
+    "glyphicons": true,
+    "scaffolding": true,
+    "grid": true,
+    "forms": true,
+    "buttons": true,
+    "component-animations": true,
+    "navs": true,
+    "navbar": true,
+    "modals": true
+  },
+
+  "scripts": false
+}
