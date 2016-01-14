@@ -28,3 +28,6 @@ node_modules
 
 # Bower
 bower_components/
+
+# dist - don't want to commit a build to the repo
+dist
