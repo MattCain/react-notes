@@ -6,9 +6,13 @@ const todos = (state = [], action) => {
         text: action.text
       }];
     case 'DELETE_TODO':
-      return state
-              .slice(0, action.index)
-              .concat(state.slice(action.index + 1));
+      if (!state[action.index]) {
+        return state;
+      }
+      return [
+        ...state.slice(0, action.index),
+        ...state.slice(action.index + 1)
+      ]
     default:
       return state;
   }
