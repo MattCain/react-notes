@@ -1,12 +1,22 @@
 import React from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 class TodosListComponent extends React.Component {
   render() {
     return (
-      <ListGroup>Hello Index</ListGroup>
+      <ListGroup>
+        {this.props.todos.length ? this.props.todos.map((item, i) => {
+          return (<ListGroupItem key={i}>
+            <h4 className="list-group-item-heading">{item.title}</h4>
+            <p className="list-group-item-text">{item.text}</p>
+          </ListGroupItem>);
+        }) : (<ListGroupItem>No todos</ListGroupItem>)}
+      </ListGroup>
     )
   }
 }
 
-export default TodosListComponent;
+export default connect(
+  state => ({ todos: state.todos })
+)(TodosListComponent);

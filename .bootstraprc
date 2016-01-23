@@ -17,6 +17,7 @@
     "component-animations": true,
     "navs": true,
     "navbar": true,
+    "list-group": true,
     "modals": true
   },
 

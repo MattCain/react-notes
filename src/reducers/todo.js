@@ -1,11 +1,13 @@
+import { ADD_TODO, DELETE_TODO } from '../actions/todo';
+
 const todos = (state = [], action) => {
   switch(action.type) {
-    case 'ADD_TODO':
+    case ADD_TODO:
       return [...state, {
         title: action.title,
         text: action.text
       }];
-    case 'DELETE_TODO':
+    case DELETE_TODO:
       if (!state[action.index]) {
         return state;
       }
@@ -18,4 +20,4 @@ const todos = (state = [], action) => {
   }
 };
 
-export default todo;
+export default todos;
