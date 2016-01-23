@@ -7,13 +7,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { browserHistory, Router, Route, IndexRoute } from 'react-router';
+import { syncHistory, routeReducer } from 'redux-simple-router'
 import App from './components/App';
 import TodosList from './components/TodosList';
 import CreateTodo from './components/CreateTodo';
-import { createStore } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import todosReducer from './reducers/todo';
 
-const store = createStore(todosReducer);
+const reducer = combineReducers({
+  todos: todosReducer,
+  routing: routeReducer
+});
+
+const reduxRouterMiddleware = syncHistory(browserHistory);
+const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware)(createStore);
+
+const store = createStoreWithMiddleware(reducer);
 
 // Render the main component into the dom
 ReactDOM.render(
