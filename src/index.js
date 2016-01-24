@@ -24,6 +24,14 @@ const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware)(createS
 
 const store = createStoreWithMiddleware(reducer);
 
+store.subscribe(() => {
+  // Save the todos to localstorage if there are any
+  const todos = store.getState().todos;
+  if (todos && todos.length) {
+    localStorage.todos = JSON.stringify(todos);
+  }
+});
+
 // Render the main component into the dom
 ReactDOM.render(
   <Provider store={store}>

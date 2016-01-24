@@ -19,7 +19,7 @@ class CreateTodoComponent extends React.Component {
       <div className="col-md-12">
         <h2>Create a Note</h2>
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <Input type="text" label="Note Title" ref="title" />
+          <Input type="text" label="Note Title" ref="title" autoFocus />
           <Input type="textarea" label="Note Details" ref="text" />
           <ButtonInput type="submit" value="Submit Button" />
         </form>
