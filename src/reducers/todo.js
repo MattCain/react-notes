@@ -2,7 +2,7 @@ import { ADD_TODO, DELETE_TODO } from '../actions/todo';
 
 const savedTodos = localStorage.todos;
 
-const initialState = localStorage.todos ? JSON.parse(localStorage.todos) : [];
+const initialState = savedTodos ? JSON.parse(savedTodos) : [];
 
 const todos = (state = initialState, action) => {
   switch(action.type) {

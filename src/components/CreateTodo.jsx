@@ -28,6 +28,4 @@ class CreateTodoComponent extends React.Component {
   }
 }
 
-export default connect(
-  state => ({})
-)(CreateTodoComponent);
+export default connect()(CreateTodoComponent);
