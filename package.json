@@ -70,7 +70,9 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
     "core-js": "^2.0.0",
+    "guid": "0.0.12",
     "history": "^1.17.0",
+    "immutable": "^3.7.6",
     "normalize.css": "^3.0.3",
     "react": "^0.14.0",
     "react-bootstrap": "^0.28.2",

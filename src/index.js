@@ -27,9 +27,7 @@ const store = createStoreWithMiddleware(reducer);
 store.subscribe(() => {
   // Save the todos to localstorage if there are any
   const todos = store.getState().todos;
-  if (todos && todos.length) {
-    localStorage.todos = JSON.stringify(todos);
-  }
+  localStorage.todos = JSON.stringify(todos);
 });
 
 // Render the main component into the dom
@@ -39,6 +37,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={TodosList} />
         <Route path="create" component={CreateTodo} />
+        <Route path="edit/:id" component={CreateTodo} />
       </Route>
     </Router>
   </Provider>,
