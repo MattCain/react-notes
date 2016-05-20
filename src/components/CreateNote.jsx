@@ -2,26 +2,26 @@ import React from 'react';
 import { routeActions } from 'redux-simple-router';
 import { connect } from 'react-redux';
 import { Input, ButtonInput } from 'react-bootstrap';
-import { addTodo, editTodo } from '../actions/todo';
+import { addNote, editNote } from '../actions/note';
 import Immutable from 'Immutable';
 
-class CreateTodoComponent extends React.Component {
+class CreateNoteComponent extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { action: 'Create', todo: {} };
+    this.state = { action: 'Create', note: {} };
   }
   componentWillMount() {
     const idParam = this.props.params.id;
-    const editTodo = this.props.todos.get(idParam);
+    const editNote = this.props.notes.get(idParam);
 
-    if (idParam && editTodo) {
+    if (idParam && editNote) {
       this.setState({
         action: 'Edit',
-        todo: editTodo,
+        note: editNote,
         id: idParam
       });
-    } else if (idParam && !editTodo) {
+    } else if (idParam && !editNote) {
       this.setState({action: '404'});
     }
   }
@@ -34,9 +34,9 @@ class CreateTodoComponent extends React.Component {
     let action;
 
     if (this.state.action === 'Create') {
-      action = addTodo(...formVals);
+      action = addNote(...formVals);
     } else {
-      action = editTodo(...formVals, this.state.id);
+      action = editNote(...formVals, this.state.id);
     }
     dispatch(action)
     dispatch(routeActions.push('/'));
@@ -49,8 +49,8 @@ class CreateTodoComponent extends React.Component {
       <div className="col-md-12">
         <h2>{this.state.action} a Note</h2>
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <Input type="text" label="Note Title" ref="title" defaultValue={this.state.todo.title} autoFocus />
-          <Input type="textarea" label="Note Text" ref="text" defaultValue={this.state.todo.text} />
+          <Input type="text" label="Note Title" ref="title" defaultValue={this.state.note.title} autoFocus />
+          <Input type="textarea" label="Note Text" ref="text" defaultValue={this.state.note.text} />
           <ButtonInput type="submit" value="Save" />
         </form>
       </div>
@@ -58,10 +58,10 @@ class CreateTodoComponent extends React.Component {
   }
 }
 
-CreateTodoComponent.propTypes = {
-  todos: React.PropTypes.instanceOf(Immutable.OrderedMap).isRequired
+CreateNoteComponent.propTypes = {
+  notes: React.PropTypes.instanceOf(Immutable.OrderedMap).isRequired
 };
 
 export default connect(
-  state => ({ todos: state.todos })
-)(CreateTodoComponent);
+  state => ({ notes: state.notes })
+)(CreateNoteComponent);

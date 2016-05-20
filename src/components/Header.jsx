@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router';
-import CreateTodoButton from './CreateTodoButton';
+import CreateNoteButton from './CreateNoteButton';
 
 const HeaderComponent = () => {
   return (
@@ -13,7 +13,7 @@ const HeaderComponent = () => {
       </Navbar.Header>
       <Nav pullRight>
         <Navbar.Form>
-          <CreateTodoButton />
+          <CreateNoteButton />
         </Navbar.Form>
       </Nav>
     </Navbar>

@@ -9,13 +9,13 @@ import { Provider } from 'react-redux';
 import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 import { syncHistory, routeReducer } from 'redux-simple-router'
 import App from './components/App';
-import TodosList from './components/TodosList';
-import CreateTodo from './components/CreateTodo';
+import NotesList from './components/NotesList';
+import CreateNote from './components/CreateNote';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import todosReducer from './reducers/todo';
+import notesReducer from './reducers/notes';
 
 const reducer = combineReducers({
-  todos: todosReducer,
+  notes: notesReducer,
   routing: routeReducer
 });
 
@@ -25,9 +25,9 @@ const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware)(createS
 const store = createStoreWithMiddleware(reducer);
 
 store.subscribe(() => {
-  // Save the todos to localstorage if there are any
-  const todos = store.getState().todos;
-  localStorage.todos = JSON.stringify(todos);
+  // Save the notes to localstorage if there are any
+  const notes = store.getState().notes;
+  localStorage.notes = JSON.stringify(notes);
 });
 
 // Render the main component into the dom
@@ -35,9 +35,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={TodosList} />
-        <Route path="create" component={CreateTodo} />
-        <Route path="edit/:id" component={CreateTodo} />
+        <IndexRoute component={NotesList} />
+        <Route path="create" component={CreateNote} />
+        <Route path="edit/:id" component={CreateNote} />
       </Route>
     </Router>
   </Provider>,

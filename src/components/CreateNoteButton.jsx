@@ -2,12 +2,12 @@ import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Button } from 'react-bootstrap';
 
-const CreateTodoButtonComponent = () => {
+const CreateNoteButtonComponent = () => {
   return (
       <LinkContainer to="/create">
-        <Button bsStyle="default" bsSize="small" className="navbar-btn">Create Todo</Button>
+        <Button bsStyle="default" bsSize="small" className="navbar-btn">Create Note</Button>
       </LinkContainer>
   );
 }
 
-export default CreateTodoButtonComponent;
+export default CreateNoteButtonComponent;
