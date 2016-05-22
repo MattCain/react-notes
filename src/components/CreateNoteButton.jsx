@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 const CreateNoteButtonComponent = () => {
   return (
       <LinkContainer to="/create">
-        <Button bsStyle="default" bsSize="small" className="navbar-btn">Create Note</Button>
+        <Button>Create Note</Button>
       </LinkContainer>
   );
 }

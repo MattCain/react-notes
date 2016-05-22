@@ -10,12 +10,13 @@ const HeaderComponent = () => {
         <Navbar.Brand>
           <Link to="/">React Notes</Link>
         </Navbar.Brand>
+        <Navbar.Toggle />
       </Navbar.Header>
-      <Nav pullRight>
-        <Navbar.Form>
+      <Navbar.Collapse>
+        <Navbar.Form pullRight>
           <CreateNoteButton />
         </Navbar.Form>
-      </Nav>
+      </Navbar.Collapse>
     </Navbar>
   )
 }
