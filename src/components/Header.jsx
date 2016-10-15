@@ -1,7 +1,7 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router';
-import CreateNoteButton from './CreateNoteButton';
 
 const HeaderComponent = () => {
   return (
@@ -14,7 +14,9 @@ const HeaderComponent = () => {
       </Navbar.Header>
       <Navbar.Collapse>
         <Navbar.Form pullRight>
-          <CreateNoteButton />
+          <LinkContainer to="/create">
+            <Button>Create Note</Button>
+          </LinkContainer>
         </Navbar.Form>
       </Navbar.Collapse>
     </Navbar>
